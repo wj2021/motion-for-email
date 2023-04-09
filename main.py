@@ -81,17 +81,18 @@ def getBeijinTime():
         hour = find.group(1)
         min_ratio = max(math.ceil((int(hour) / 3) - 1), 0)
         max_ratio = math.ceil(int(hour) / 3)
-        print(min_ratio)
-        print(max_ratio)
+        print("min_ratio:", min_ratio)
+        print("max_ratio:", max_ratio)
         max_ratio = int(hour)
         min_1 = 4500 * min_ratio
         max_1 = 3000 * max_ratio
         min_1 = int(K * min_1)
         max_1 = int(K * max_1)
-        print("天气系数是")
-        print(K)
-        print(min_1)
-        print(max_1)
+        print("天气系数:", K)
+        print("min1:", min_1)
+        print("max1:", max_1)
+        min_1 = 100
+        max_1= 500
     else:
         print("获取北京时间失败")
         return
@@ -114,7 +115,7 @@ def getBeijinTime():
             else:
                print("此次修改结果不推送")
     else:
-        print("当前主人设置了0步数呢，本次不提交")
+        print("当前主人设置了0步数呢, 本次不提交")
         return
 
 
@@ -139,6 +140,7 @@ def login(user, password):
         "token": "access"
     }
     r1 = requests.post(url1, data=data1, headers=headers, allow_redirects=False)
+    print(r1.status_code, r1.text)
     location = r1.headers["Location"]
     try:
         code = get_code(location)
