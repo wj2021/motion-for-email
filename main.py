@@ -91,8 +91,6 @@ def getBeijinTime():
         print("天气系数:", K)
         print("min1:", min_1)
         print("max1:", max_1)
-        min_1 = 100
-        max_1= 500
     else:
         print("获取北京时间失败")
         return
